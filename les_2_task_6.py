@@ -8,9 +8,9 @@ https://drive.google.com/file/d/1o-V4GKe6fFn1TsYXTVORh3x-jHYjcgIE/view?usp=shari
 from random import randint
 
 
-def game(num, turn=0):
-    if turn < 10:
-        attempt = int(input())
+def game(num, turn=1):
+    if turn < 11:
+        attempt = int(input(f'Попытка № {turn}\nВаше число '))
         if attempt == num:
             return f'Победа!'
         if num > attempt:

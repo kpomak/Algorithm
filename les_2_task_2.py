@@ -9,7 +9,7 @@ https://drive.google.com/file/d/1o-V4GKe6fFn1TsYXTVORh3x-jHYjcgIE/view?usp=shari
 def odd_even(num, odd=0, even=0):
     if not num:
         return odd, even
-    if num % 10 % 2 == 0:
+    if num % 2 == 0:
         return odd_even(num // 10, odd, even + 1)
     else:
         return odd_even(num // 10, odd + 1, even)
