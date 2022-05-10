@@ -18,9 +18,8 @@ for i, value in enumerate(array):
     if value < 0 and not flag:
         idx = i
         flag = True
-    elif value < 0:
-        if value > array[idx]:
-            idx = i
+    elif array[idx] < value < 0:
+        idx = i
 
 # вывод
 print(f'Исходный массив:\n{array}')

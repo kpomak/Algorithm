@@ -13,13 +13,13 @@ matrix = [[randint(LOW, HIGH) for j in range(N)] for i in range(M)]
 
 # решение
 min_array = matrix[0]
-for row in matrix:  # проходим по первой строке только, чтобы не создавать в памяти новый объект через срез матрицы
+for row in matrix:
     for column_idx, value in enumerate(row):
         if min_array[column_idx] > value:
             min_array[column_idx] = value
 
 max_num = min_array[0]
-for num in min_array[1:]:
+for num in min_array:
     if max_num < num:
         max_num = num
 

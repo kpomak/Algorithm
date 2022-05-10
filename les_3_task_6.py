@@ -21,11 +21,12 @@ for idx, num in enumerate(array):
     if array[min_idx] > num:
         min_idx = idx
 
-if min_idx > max_idx:
+if array[min_idx] > array[max_idx]:
     min_idx, max_idx = max_idx, min_idx
 
-for num in array[min_idx + 1: max_idx]:
-    result += num
+for i, num in enumerate(array):
+    if min_idx < i < max_idx:
+        result += num
 
 # вывод
 print(f'В исходном массиве:\n{array}\nсумма чисел между элементами '

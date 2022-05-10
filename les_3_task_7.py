@@ -12,7 +12,7 @@ array = [randint(LOW, HIGH) for i in range(SIZE)]
 
 # решение
 fst_min, snd_min = array[1], array[0]
-for num in array[1:]:
+for num in array:
     if num <= fst_min:
         fst_min = num
         if snd_min > fst_min:

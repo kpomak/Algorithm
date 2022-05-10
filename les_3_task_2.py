@@ -16,7 +16,7 @@ array = [randint(LOW, HIGH) for i in range(SIZE)]
 # решение
 result = []
 for idx, num in enumerate(array):
-    if not num % 2:
+    if num % 2 == 0:
         result.append(idx)
 
 # вывод
