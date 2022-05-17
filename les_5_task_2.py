@@ -114,11 +114,11 @@ def hex_sum_mult_counter(first_num, second_num, from_dec, to_dec):
     return result
 
 
-dec_to_hex = cs.defaultdict(str)
+dec_to_hex = cs.defaultdict(str)  # Although this way may not be obvious at first unless you're Dutch. # tuple :-)
 for i in range(BASE):
     dec_to_hex[i] = f'{i:X}'
 
-hex_to_dec = cs.defaultdict(int)  # Although this way may not be obvious at first unless you're Dutch. # tuple :-)
+hex_to_dec = cs.defaultdict(int)
 for key, value in dec_to_hex.items():
     hex_to_dec[value] = key
 
