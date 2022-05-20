@@ -24,7 +24,7 @@ import numpy as np
 from random import randint
 
 
-def size(**data_list):
+def size(**kwargs):
     checked_id = []
 
     def catch_if_not_already_checked(element):
@@ -34,20 +34,20 @@ def size(**data_list):
         checked_id.append(element_id)
         return sys.getsizeof(element)
 
-    def _size(*data):
+    def _size(*args):
         result = 0
-        for piece_data in data:
-            if hasattr(piece_data, '__iter__'):
+        for data in args:
+            if hasattr(data, '__iter__'):
                 items_sum = 0
-                if hasattr(piece_data, 'items'):
-                    items_sum = sum([_size(key, value) for key, value in piece_data.items()])
-                elif not isinstance(piece_data, (range, enumerate, str)):
-                    items_sum = sum([_size(item) for item in piece_data])
-                return catch_if_not_already_checked(piece_data) + items_sum
-            result += catch_if_not_already_checked(piece_data)
+                if hasattr(data, 'items'):
+                    items_sum = sum([_size(key, value) for key, value in data.items()])
+                elif not isinstance(data, (range, enumerate, str)):
+                    items_sum = sum([_size(item) for item in data])
+                return catch_if_not_already_checked(data) + items_sum
+            result += catch_if_not_already_checked(data)
         return result
 
-    return sum([_size(data_item) for data_item in data_list.values()])
+    return sum([_size(data_item) for data_item in kwargs.values()])
 
 
 # решение 1
@@ -203,7 +203,7 @@ solution_9 = np.array(num_array)
 
 # решение
 print('Использование памяти при решении задачи 3.7 в зависимости от типа данных: ')
-print(f'{str(type(solution_1)):<40}{size(**func_list(solution_1)):} байт')
+print(f'{str(type(solution_1)):<40}{size(**func_list(solution_1))} байт')
 print(f'{str(type(solution_2)):<40}{size(**func_tuple(solution_2))} байт')
 print(f'{str(type(solution_3)):<40}{size(**func_set(solution_3))} байт')
 print(f'{str(type(solution_4)):<40}{size(**func_frozenset(solution_4))} байт')
